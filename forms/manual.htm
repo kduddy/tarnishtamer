@@ -1,0 +1,195 @@
+<html dir="ltr">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>New Page 2</title>
+</head>
+
+<body>
+
+<p align="center">
+<a href="http://tools4php.com">
+<img border="0" src="images/logo.gif" width="108" height="29"></a></p>
+<p align="center"><b><font face="Verdana" color="#000080" size="4">PHP Form 
+Captcha</font></b></p>
+<p align="center"><b><font face="Verdana">Version 1.1</font></b></p>
+<p align="center"><b><font face="Verdana" color="#000080" size="4"><br></font>
+<i><font face="Verdana" color="#000080" size="2">&quot;Best way to prevent automatic 
+submission to your form&quot;</font></i></b></p>
+<p align="left"><b><u>Table of contents:</u></b></p>
+<ul>
+	<li><a href="#System_requirements">System requirements .</a></li>
+	<li><a href="#Installation">Installation </a></li>
+	<li><a href="#adminstration">Administration</a></li>
+	<li><a href="#FAQ">FAQ</a></li>
+	<li><a href="#Support:_">Support</a></li>
+</ul>
+<p><u><b><a name="System_requirements">System requirements</a></b></u></p>
+<ul>
+	<li>&nbsp;PHP</li>
+	<li>&nbsp;GD library (built-in PHP 4.3.2 or later version) to get help 
+	installing GD please <a href="http://www.phpfreaks.com/tutorials/105/0.php">
+	click here&nbsp; </a>&nbsp; </li>
+	<li>An HTML or PHP web form</li>
+	<li>PHP processing script to process your form </li>
+	<li>No MySQL is required.</li>
+</ul>
+<p><u><b><a name="Installation">Installation</a></b></u></p>
+<p><a name="top">Installing the PHP Form Captcha is a very easy process, and 
+only takes around 5 minutes from start to finish. Our installation routine has 
+been designed with the novice in mind to ensure an easy installation..</a></p>
+<ol>
+	<li>Please UnZip the package you received .</li>
+	<li><a name="top0">Now that you have the files unzipped on your computer, 
+	you need to upload them to your server </a><u> <b>into the same directory of your web 
+	form </b></u></li>
+</ol>
+<p><u><b><font color="#FF0000">IMPORTANT&nbsp; NOTE:-</font></b></u></p>
+<p align="left"><b>&nbsp;&nbsp;&nbsp; </b>Did this title grab your attention? 
+Good! It should really do! Please read on ...<p align="left">You should be 100% 
+sure that the files config.php, captcha.php, captchalib.php, check.php and the 
+subdirectory admin are <b><u>exists&nbsp; in the same directory </u></b>of your web form<ol>
+	<li value="3">
+	<p align="left">Give read/write permissions to the file config.php , this 
+	file will include your preferences, it needs to be accessible for reading 
+	and writing operations that can be done easily by right click on it and 
+	select properties </li>
+	<li>Open the admin page on your browser at: .. /admin/admin.php (i.e
+	<a href="http://your">
+	http://your-server-name.com/path-To-your-form-directory/admin/admin.php</a>)</li>
+	<li>You should see a login area, please use the following login info :&nbsp; 
+	username : admin&nbsp;&nbsp;&nbsp; password: admin </li>
+	<li>&nbsp;Enter the URL of the form you want to secure in 
+	the &quot;Form URL&quot; field, the first field in the admin page, then you need to 
+	change the login info of the admin page by adding new username and password 
+	in the &quot;Admin login info&quot;, the last section of the admin page. </li>
+	<li>Now open the form you want to protect , add the following HTML code&nbsp; 
+	somewhere inside the &lt;form&gt; and &lt;/form&gt; </li>
+</ol>
+<div align="center">
+<table border="1" width="80%" bgcolor="#FFFFCC" cellpadding="5">
+	<tr>
+		<td><font color="#0000FF" size="2">&nbsp;Enter the code shown &lt;input 
+		type=&quot;text&quot; name=&quot;pfw_security_code&quot; size=&quot;20&quot;&gt;&lt;p&gt;&lt;img border=&quot;0&quot; 
+		src=&quot;captcha.php&quot; &gt;&lt;/p&gt;</font></td>
+	</tr>
+</table>
+</div>
+<p align="left">the above HTML code will generate the captcha picture which 
+include the distorted text appears in your form along with a text box for your 
+visitor to enter the security code he sees in the picture.</p>
+<ol>
+	<li value="8">
+	<p align="left">Open your form processor file&nbsp; , it's name should be 
+	mentioned in the &quot;action&quot; parameter of your &lt;form&gt; tag, please add the 
+	following PHP line at the&nbsp; top of the file<b> </b> <u><b>just after the &quot;&lt;?php&quot; line</b>
+	</u>or after the validation code if you are aware of PHP scripting</p></li>
+</ol>
+
+<table border="1" width="80%" bgcolor="#FFFFCC" cellpadding="5" align="center">
+	<tr>
+		<td><font size="2" color="#0000FF">require_once(&quot;check.php&quot;);</font></td>
+	</tr>
+</table>
+<p>Now&nbsp; open your form in the browser , you should see the captcha image, 
+if you don't see the image please <a href="#q">click here</a> , the distorted text should be changed 
+whenever you refresh your form , try to enter an invalid security code and see 
+weather or not the error message appears correctly then try to add it correctly 
+and see what happens , To change size, font, border, error message mode please 
+display the admin page and make any changes you like at ../admin/admin.php</p>
+<p><u><b><a name="adminstration">Administration</a></b></u></p>
+<p><a name="top1">The administration page is used to change </a><a name="top0">
+the characteristics of the captcha system </a><a name="top2">so that you may 
+tailor it to meet your expectations, the admin page includes 5 important 
+sections :</a></p>
+<ul>
+	<li><b>Form properties </b>(it's important to add the URL of your form only 
+	if you need the error message, which should be displayed to your visitor 
+	when&nbsp; he incorrect security code, appears in the same page of your 
+	form)</li>
+	<li><b>Captcha image properties </b>: this section allow you to change the 
+	width, height , border and font of your turing image to fit your template. 
+	</li>
+</ul>
+<p><b><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>IMPORTANT&nbsp; 
+NOTE:-</u></font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>To change the font 
+of the turing text , you need first to upload the font file in the same 
+directory of your form then add it's name in the &quot;<b>Font file name</b>&quot;</p>
+<ul>
+	<li><b>Error Alert properties&nbsp;:</b> in this section you control how the 
+	error message which should be displayed to your visitor when he enters 
+	invalid security code, there are 3 options for how to show the error message 
+	:<ol>
+		<li>Error message appears in a new page generated by the form captcha , 
+		the error message you set appears on this page</li>
+		<li>Error message appears in a new message you creates, in this case you 
+		need to generate a web page and type it's URL in the &quot;generated error 
+		page&quot;.</li>
+		<li>Error message appears in the same page of your form , in this case 
+		you need to add the following tag in your form page in the place that 
+		you want the error message to appear at :</li>
+		</li>
+	</ol>
+<br>
+<table border="1" width="80%" bgcolor="#FFFFCC" cellpadding="5" align="center">
+	<tr>
+		<td>&lt;!-- error alert goes here --&gt;</td>
+	</tr>
+</table>
+	<p>&nbsp;</li>
+	<li><b>Success page: </b>After processing the form normally the form 
+	possessor should direct your visitor to certain page where a thank you 
+	message displayed , Form captcha is not a form processor it only protect 
+	your form from automatic submission but however if you need it to direct 
+	your visitor somewhere after code verification you should check the &quot;<b>direct 
+	to success page</b>&quot; box and add the page URL in the &quot;<b>success page</b>&quot; </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><font color="#FF0000"> <u>IMPORTANT&nbsp; 
+NOTE:-</u></font></b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the above feature is not 
+recommended unless the form doesn't make anything other than checking the 
+security code which is very rare..<u><b> </b></u></p>
+<ul>
+	<li><b>Admin login info : </b>setting the login info of the admin page , you 
+	shouldn't enter a password unless you want to change the existing one.</li>
+</ul>
+<p><b><u><a name="FAQ">FAQ</a></u></b></p>
+<p><a name="top3">&nbsp;</a><strong><a name="q">Q: I</a> don't see the turing picture in my form 
+?<br>&nbsp;<font color="#000080">A: This might happened if you try to open the 
+form on your computer by just double clicking the form file, this wont display the 
+image because it is created by a PHP script need to be run on your server,&nbsp; 
+you need to share the folder which contain the form in your PC, then open your 
+browser and type </font><a href="http://localhost/foldername/form.html">
+<font color="#000080"><span style="text-decoration: none">
+http://localhost/folder-name/form-name.html</span></font></a><font color="#000080">&nbsp; 
+or simply upload the form ,type the URL of it in the address bar of your 
+browser.&nbsp;</font></strong></p>
+<p><strong><font color="#000080">&nbsp;also you need to make sure that</font></strong></p>
+<blockquote>
+	<ul>
+		<li><strong><font color="#000080">Your form is in the same directory of&nbsp; 
+		the files &quot;config.php&quot;, &quot;captcha.php&quot;, &quot;captchalib.php&quot; the font file &quot;CENTURY.TTF&quot; 
+		and the sub directory &quot;admin&quot; .</font></strong></li>
+		<li><strong><font color="#000080">You need to be sure that you add the 
+		code which display the image (step 7 in the installation) within the 
+		&lt;form&gt; &lt;/form&gt;</font></strong></li>
+	</ul>
+</blockquote>
+<p><a name="top0">&nbsp;</a><strong>Q: Can turing text 
+be case insensitive?<br><font color="#000080">A: Yes, All you have to do is 
+display the admin page at /admin/admin.php and uncheck the &quot;sensitive security 
+code comparison&quot; box .</font></strong><a name="top0"><br>&nbsp;</a></p>
+<p><a name="top4">&nbsp;</a><strong>Q: Can the size of turing image and length 
+of security code be changed?<br><font color="#000080">A: Yes, you can change 
+size , font , border&nbsp; and code length from your admin page&nbsp; </font></strong></p>
+<p><u><b><a name="Support:_">Support:</a></b></u></p>
+<p>If you still have any question please contact us at
+<a href="mailto:tools4php@tools4php.com">tools4php@tools4php.com</a> , we will 
+respond within one business day .</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>
